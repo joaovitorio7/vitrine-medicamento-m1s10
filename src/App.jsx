@@ -1,7 +1,7 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import './App.css'
 
-import  MedicamentoContextProvider  from "./context/MedicamentosContext";
+import { MedicamentosContextProvider }  from "./context/MedicamentosContext";
 
 import Header from "./components/Header";
 import FormularioNovoMedicamento from "./components/FormularioNovoMedicamento";
@@ -10,10 +10,10 @@ function App() {
 
   return (
     <>
-      <MedicamentoContextProvider>
       <Header />
+      <MedicamentosContextProvider>
       <FormularioNovoMedicamento />
-      </MedicamentoContextProvider>
+      </MedicamentosContextProvider>
     </>
   )
 }

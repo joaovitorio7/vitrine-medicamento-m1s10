@@ -1,13 +1,13 @@
 import { createContext, useState } from "react";
 
-export const MedicamentoContext = createContext()
+export const MedicamentosContext = createContext()
 
-export const MedicamentoContextProvider = ({children}) => {
+export const MedicamentosContextProvider = ({children}) => {
 
   const [listaMedicamentos, setListaMedicamentos] = useState([])
 
   const AdicionarMedicamento = (nome, laboratorio, preco) => {
-    if(nome.length == "" || laboratorio.length == "" || preco == 0){
+    if(nome.length == "" || laboratorio.length == "" || preco == 0 || preco == ""){
       alert("Preencha todas as informações!")
       return 
     }
@@ -20,15 +20,15 @@ export const MedicamentoContextProvider = ({children}) => {
       favorito: false
     } 
 
-    const novaLista = [...listaMedicamentos]
+    const novaLista = [...listaMedicamentos, novoMedicamento]
     //novaLista.push(novoMedicamento)
     setListaMedicamentos(novaLista)
   } 
 
   return(
-    <MedicamentoContext.Provider value={{listaMedicamentos, AdicionarMedicamento}}>
+    <MedicamentosContext.Provider value={{listaMedicamentos, AdicionarMedicamento}}>
       {children}
-    </MedicamentoContext.Provider>
+    </MedicamentosContext.Provider>
   )
 }
 
