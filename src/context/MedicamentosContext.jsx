@@ -21,8 +21,10 @@ export const MedicamentosContextProvider = ({children}) => {
     } 
 
     const novaLista = [...listaMedicamentos, novoMedicamento]
+    console.log(novaLista)
     //novaLista.push(novoMedicamento)
     setListaMedicamentos(novaLista)
+    alert("Medicamento cadastrado com sucesso!")
   } 
 
   return(
