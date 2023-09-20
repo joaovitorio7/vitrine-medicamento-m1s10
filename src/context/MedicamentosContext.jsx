@@ -4,7 +4,8 @@ export const MedicamentosContext = createContext()
 
 export const MedicamentosContextProvider = ({children}) => {
 
-  const [listaMedicamentos, setListaMedicamentos] = useState([])
+  const [listaMedicamentos, setListaMedicamentos] = useState(JSON.parse
+    (localStorage.getItem("listaMedicamentos")) || [])
 
   const AdicionarMedicamento = (nome, laboratorio, preco) => {
     if(nome.length == "" || laboratorio.length == "" || preco == 0 || preco == ""){
@@ -21,7 +22,7 @@ export const MedicamentosContextProvider = ({children}) => {
     } 
 
     const novaLista = [...listaMedicamentos, novoMedicamento]
-    console.log(novaLista)
+    localStorage.setItem("listaMedicamentos", JSON.stringify(novaLista))
     //novaLista.push(novoMedicamento)
     setListaMedicamentos(novaLista)
     alert("Medicamento cadastrado com sucesso!")
@@ -42,8 +43,8 @@ export const MedicamentosContextProvider = ({children}) => {
 
   //   setListaMedicamentos(novaLista)
 
-  const medicamento = listaMedicamentos.map(intem => {
-    if(intem.id == id){
+  const medicamento = listaMedicamentos.map(item => {
+    if(item.id == id){
       item.favorito = !item.favorito
     }
 
