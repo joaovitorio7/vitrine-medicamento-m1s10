@@ -28,7 +28,29 @@ export const MedicamentosContextProvider = ({children}) => {
   } 
 
   const FavoritarMedicamento = (id) => {
+  //   const medicamento = listaMedicamentos.filter(intem => intem.id == id)  
 
+  //   if(medicamento.length == 0){
+  //     return
+  //   }
+
+  //   medicamento.favorito = !medicamento.favorito
+
+  //   const listaFiltrada = listaMedicamentos.filter(intem => intem.id != id)
+
+  //   const novaLista = [...listaFiltrada, medicamento]
+
+  //   setListaMedicamentos(novaLista)
+
+  const medicamento = listaMedicamentos.map(intem => {
+    if(intem.id == id){
+      item.favorito = !item.favorito
+    }
+
+    return item
+  })
+
+  setListaMedicamentos(lista)
   }
 
   return(
